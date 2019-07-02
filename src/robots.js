@@ -60,7 +60,13 @@ export const robots = [
     email: 'Rey.Padberg@karina.biz'
   },
   {
-    id : 11,
+    id: 11,
+    name: 'TARS',
+    username: 'Sarcastic_TARS',
+    email: 'tarsonthemars@cooper.sp'
+  },
+  {
+    id : 12,
     name : 'Pranav Kulkarni',
     username : 'praanv2308',
     email : 'pranav08@terpmail.umd.edu'
