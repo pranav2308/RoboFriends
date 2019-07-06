@@ -10,7 +10,7 @@ const CardList = ({ robots }) => {
 	const produceCardList = robots.map(returnCardElement);
 	return (
 		<div>
-			{produceCardList};
+			{produceCardList}
 		</div>
 	);
 }
