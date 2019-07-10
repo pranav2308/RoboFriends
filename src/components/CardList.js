@@ -6,6 +6,7 @@ const returnCardElement = (user) => {
 	return element;
 }
 
+//Returns the list of cards.
 const CardList = ({ robots }) => {
 	const produceCardList = robots.map(returnCardElement);
 	return (

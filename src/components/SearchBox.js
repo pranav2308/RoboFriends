@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+//Renders the searcbox for searching robots.
 const SearchBox = ({onSearchChange}) => {
 	return (
 		<div className = 'pa2'>

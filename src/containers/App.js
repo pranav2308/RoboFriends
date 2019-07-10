@@ -1,12 +1,14 @@
 import React from 'react';
-import CardList from './CardList';
-import SearchBox from './SearchBox';
-import Scroll from './Scroll'
+import CardList from '../components/CardList';
+import SearchBox from '../components/SearchBox';
+import Scroll from '../components/Scroll'
 import './App.css';
 
 class App extends React.Component {
 	constructor(props){
 		super(props);
+
+		//initializing the state.
 		this.state = {
 			robots : [],
 			searchString : "",	
@@ -14,7 +16,7 @@ class App extends React.Component {
 		this.onSearchChange = this.onSearchChange.bind(this);
 	}
 
-
+	//Fetching the user data from API.
 	componentDidMount(){
 		fetch('https://jsonplaceholder.typicode.com/users')
 		.then((response) => response.json())
@@ -22,14 +24,22 @@ class App extends React.Component {
 	}
 
 	onSearchChange = (e) => {
+		/*
+			Called by searchbox component when user edits the input.
+			Updates the state with serach-string typed. 
+		*/
 		this.setState({
 			searchString : e.target.value
 		})
 	}
 
 	render(){
-		const filteredRobots = this.state.robots.filter((robot) => {return (robot.name.toLowerCase().includes(this.state.searchString.toLowerCase()))});
-		if(this.state.robots.length === 0){
+		const { robots, searchString } = this.state;
+
+		//Filter the robots as per the search-string typed.
+		const filteredRobots = robots.filter((robot) => {return (robot.name.toLowerCase().includes(searchString.toLowerCase()))});
+
+		if(!robots.length){
 			return <h1 className = 'tc f1'>Loading  robots</h1>;
 		}
 		else{
